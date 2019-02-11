@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 4</title>
+</head>
+<body>
+
+	<!--  A partir del siguiente array que se proporciona: var valores = [true, 5, false, "hola", "adios", 2];
+
+	1. Determinar cual de los dos elementos de texto es mayor
+
+	2. Utilizando exclusivamente los dos valores booleanos del array, determinar los operadores
+	necesarios para obtener un resultado true y otro resultado false
+
+	3. Determinar el resultado de las cinco operaciones matemáticas realizadas con los dos elementos numéricos
+
+	 -->
+
+	<script type="text/javascript">
+
+		
+		var valores = [true, 5, false, "hola", "adios", 2];
+
+		document.write("APARTADO 1");
+	    document.write("<br>");
+
+		// 1) DETERMINAR CUAL DE LOS DOS ELEMENTOS DE TEXTO ES MAYOR
+
+		var elemento1 = valores[3].length; // Creo esta variable que recoje la longitud del elemento 3
+		var elemento2 = valores[4].length; // Creo esta variable que recoje la longitud del elemento 4
+
+	 	// ahora con if hago la comprobacion de cual es mayor
+		if (elemento1>elemento2){
+			document.write("El texto mayor es: " + valores[3]);
+		} else {
+			document.write("El texto mayor es: " + valores[4]);
+		}
+
+
+		document.write("<br>");
+		document.write("<br>");
+		document.write("APARTADO 2");
+	    document.write("<br>");
+
+		// 2) UTILIZANDO EXCLUSIVAMENTE LOS VALORES BOOLEANOS DEL ARRAY, determinar los operadores
+        // necesarios para obtener un resultado true y otro resultado false
+
+        var verdadero=valores[0]; //creo una variable que recoge el valor del elemento 0 del array que es true
+        var falso=valores[2]; //creo una variable que recoge el valor del elemento 2 del array que es false
+
+        // Ahora imprimo esas variables que he creado, 
+
+        document.write(verdadero)
+        document.write("<br>");
+        document.write(falso)
+
+        /*En realidad tambien podia haber usado solo, 
+
+        document.write(valores[0])
+        document.write("<br>");
+        document.write(valores[2])
+				
+		pero de la forma qu elo he hecho, le he asignado valores true o false a nuevas variables, 
+
+		*/
+
+		document.write("<br>");
+		document.write("<br>");
+		document.write("APARTADO 3");
+	    document.write("<br>");
+
+		// 3) DETERMINAR EL RESULTADO DE LAS 5 OPERACIONES REALIZADAS CON LOS DOS ELEMENTOS NUMERICOS
+
+		var suma=valores[1]+valores[5];
+
+		document.write("La suma de  " + valores[1] + " + " + valores[5] + " es: " + suma);
+	    document.write("<br>");
+
+	    var resta=valores[1]-valores[5];
+
+		document.write("La resta de  " + valores[1] + " - " + valores[5] + " es: " + resta);
+	    document.write("<br>");
+
+	    var multiplicacion=valores[1]*valores[5];
+
+		document.write("La multiplicacion de  " + valores[1] + " x " + valores[5] + " es: " + multiplicacion);
+	    document.write("<br>");
+
+	    var division=valores[1]/valores[5];
+
+		document.write("La division de  " + valores[1] + " / " + valores[5] + " es: " + division);
+	    document.write("<br>");
+
+	    var modulo=valores[1]%valores[5];
+
+		document.write("El modulo o resto de  la dividion " + valores[1] + " / " + valores[5] + " es: " + modulo);
+	    document.write("<br>");
+			
+	
+	</script>
+		
+	
+</body>
+</html>

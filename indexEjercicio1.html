@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 1</title>
+</head>
+<body>
+
+	<!--  Escribe una función (invertirCadena()) que tome como parámetro la palabra introducida por el usuario y retorne la palabra escrita a la inversa. -->
+
+	<script type="text/javascript">
+		
+		var texto =prompt("Introduce un texto");
+
+		//var texto ="casaa";
+
+		invertirCadena (texto)	// Aqui llamo a la funcion que convierte y entre parentesis le digo que use la variable texto
+
+		// Aqui imprimo que texto se ha introducido, y el texto al reves, mediante el resultado que devuelve con return, la funcion invertirCadena
+
+		document.write("El texto, " + texto + ", a la inversa es: " + invertirCadena (texto));
+		document.write("<br>");	
+
+		// Funcion Invertir cadena
+		function invertirCadena (texto) {			
+
+			// Aqui creo una nueva variable y le digo que se aigual a texto convertido en array con split, y con reverse le digo que se inviertan los caracteres
+
+			var textoAlReves = texto.split("").reverse(); // Aqui lo convierto en array
+
+			var stringResult=textoAlReves.join("") // Aqui lo que hago es convertir en string para quitarle las comas, es decir join une un array como si fuera un texto string todo seguido
+
+			// Aqui retorna el valor de frase, para usarlo despues para imprimirlo en el document.write
+
+			return stringResult;
+	
+		}
+
+/* FORMA 2
+
+		var texto ="casa";
+		invertirCadena (texto);	//Aqui llamo a la funcion invertirCadena y le digo entre parentesis que va a usar la variable texto		
+
+
+		function invertirCadena (texto) {
+
+			var de_String_A_Array=[]; // Aqui creo un nuevo array
+
+			for(var i=texto.length;i>=0;i--){ // Aqui recorro el string texto al reves y cada valor que encuentre lo va a poner en el array de_String_A_Array mediante push
+
+				de_String_A_Array.push(texto[i]);		
+	
+		}
+
+		// Ahora imprimo el array de_String_A_Array
+	
+		document.write(de_String_A_Array)
+	}
+
+*/
+
+
+	/* FORMA 3
+	var texto = prompt("Escribe un texto");
+
+	// Recorremos con un for la pabrabra pero al reves, empezando por el final y llegando hast ala primera letra, y con texto[i] nos va a imprimir cada letra 
+
+	for (var i=texto.length;i>=0;i--) {
+	      document.write(texto[i]);
+	}
+
+	*/
+			
+	
+	</script>
+		
+	
+</body>
+</html>

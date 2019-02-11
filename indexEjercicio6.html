@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+
+    <!--  El factorial de un número entero n es una operación matemática que consiste en multiplicar todos los factores . Así, el factorial de 5 (escrito como 5!) es igual a:
+
+    5! = 5 * 4 * 3 * 2 * 1=120
+
+    Utilizando la estructura for, crear un script que calcule el factorial de un número entero.
+
+     -->
+
+    <script type="text/javascript">
+
+        var array=new Array(); // Creo un nuevo array que va a ir recogiendo el resultado de la suma de cada vuelta de los dados       
+
+        suma(); // Llamo a la funcion que calcula la suma
+
+        numeroMasRepetido();   // Llama a la funcion que calcula  el numero que se repite menos     
+
+        document.write("El numero mas repetido del array es: " + numeroMasRepetido() + "<br>"); // imprime el resultado que devuelve la funcion numeroMayor
+
+        //numeroMenosRepetido();   // Llama a la funcion que calcula  el numero que se repite mas veces     
+
+        //document.write("El numero menos repetido del array es: " + numeroMenosRepetido() + "<br>"); // imprime el resultado que devuelve la funcion numeroMasRepetido
+       
+        numeroMayor();   // Llama a la funcion que calcula el numero mayor     
+
+        document.write("El numero mayor del array es: " + numeroMayor() + "<br>"); // imprime el resultado que devuelve la funcion numeroMayor
+
+        numeroMenor();   // Llama a la funcion que calcula el numero menor     
+
+        document.write("El numero menor del array es: " + numeroMenor() + "<br>"); // imprime el resultado que devuelve la funcion numeroMenor
+
+        // Funcion que calcula la suma de los 3 dados aleatorios y lo repite 100 veces
+
+        function suma(){
+
+            var suma=0; // Variable que recoge la suma de cada vuelta
+
+            // Con for repito 100 veces ls operacion de calcular un numero aleatorio de cada dado y hacer la suma de los tres
+
+            for(i=0;i<100;i++){
+
+                var dado1 = parseInt((Math.random()*6)+1); // Calculo valor aleatorio del dado1, desde 1 hasta el 6    
+        
+                var dado2 = parseInt((Math.random()*6)+1); // Calculo valor aleatorio del dado2
+     
+                var dado3 = parseInt((Math.random()*6)+1); // Calculo valor aleatorio del dado3
+
+                suma=dado1 + dado2 + dado3; // calculo la suma para cada vuelta y la guardo en la variable suma que habia creado
+
+                array.push(suma); // <voy metiendo en el array con push el valor de cada vuelta del resultado de la suma
+
+            }
+
+            // imprimo el array con los 100 resultados de la suma aleatoria de los dados
+
+            document.write("<br>");
+            document.write("Suma de los dados: " + array); 
+            document.write("<br>");                 
+
+        }
+
+        // FUNCION para, El número que se repite más veces en el array
+
+        function numeroMasRepetido(){  
+              
+
+            for (var i = 0; i < array.length; i++) {
+
+                for (var j = i+1; j < array.length; j++) {
+
+                    if(array[i] == array[j]) {
+                        return array[i];
+                    }
+                 }
+            }
+     
+      
+         }
+            
+            //Con un primer for va a comparar cada posicion de i con la posicion i+1
+            // si el array tiene estos numeros, 11, 12, 10, 6, 11
+
+            // el primer for le decimos que coja la posicion 0, osea el 11,
+            // y pasa al segundo for, que empieza desde la posicion i+1, osea posicion 1, que es el 12
+            //y los compara y si son iguales guarda el valor de esa posicion de i
+
+            // La primera vuelta compara,
+            // 11 con 12, y como no son iguales, por ahora guarda el 11
+            // 11 con 10, y como no son iguales, gana el 11
+            // 11 con 6, y como no son iguales, gana el 11
+            // 11 con 11, y aunque el ultimo valor guardado era el 11, ademas tambien son igules (pero ya no hubiera hecho falta que lo fueran, porque el ultimo ya era un 11)
+
+             // La segunda vuelta compara,
+            // 12 con 10, y como no son iguales, por ahora guarda el 11 que ya teniamos en la primera vuelta
+            // 12 con 6, y como no son iguales, gana el 11
+            // 12 con 11, y como no son iguales, gana el 11
+
+            // La tercera vuelta compara,
+            // 10 con 6, y como no son iguales, por ahora guarda el 11 que ya teniamos en la primera vuelta
+            // 10 con 11, y como no son iguales, gana el 11
+
+            // La cuarta vuelta compara,
+            // 6 con 11, y como no son iguales, gana el 11 que ya teniamos en la primera vuelta     
+                    
+
+            
+        // FUNCION para, El número que se repite menos veces en el array
+
+        // NO CONSIGO SACAR ESTE APATADO
+
+
+        // FUNCION para, El número mayor del array
+
+        function numeroMayor(){
+
+        var numeroMayor = Math.max.apply(null,array); // Con Math.max.apply(1,array) le digo que obtenga el numero mas alto del array
+           
+        return numeroMayor; // aqui devuelve el valor 
+        
+        } 
+
+
+        // FUNCION para, El número menor del array
+
+        function numeroMenor(){
+
+        var numeroMenor = Math.min.apply(null,array); // Con Math.max.apply(1,array) le digo que obtenga el numero mas alto del array
+           
+        return numeroMenor; // aqui devuelve el valor
+        
+        }                   
+    
+    </script>
+        
+    
+</body>
+</html>
+
+

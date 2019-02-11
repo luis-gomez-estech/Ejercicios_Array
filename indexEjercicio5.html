@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 5</title>
+</head>
+<body>
+
+	<!--  El factorial de un número entero n es una operación matemática que consiste en multiplicar todos los factores
+	n * (n-1) * (n-2) * ...1. Así, el factorial de 5 (escrito como 5!) es igual a:
+
+	5! = 5 * 4 * 3 * 2 * 1=120
+
+	Utilizando la estructura for, crear un script que calcule el factorial de un número entero.
+
+
+	 -->
+
+	<script type="text/javascript">
+
+	
+	var numero=prompt("Introduce el numero para calcular su factorial");
+	
+	//var numero=5;
+
+	var resultFactorial = ""; // Creo una variable string vacia que va a guardar los numeros decreciendo y multiplicandose
+
+	// Creo una variable para calcular la multiplicacion de cada numero obtenido (5*4*3*2*1), y la inicio desde el valor de la variable numero
+	// ya que para 5!, empezamos con 5+4+3+2+1, por tanto la iniciamos cone l valor maximo del numero
+
+	var multiplicacion=numero; 
+
+	// Ahora con un for recorro el numero desde el final hasta 1, ya que necesitamos hasta el 1
+
+	for (var i=numero;i>=1;i--) {
+
+		// Ahora con if le digo que si el numero es distinto de 1, que se añada al string resultFactorial el valor de i mas el simbolo *, osea, i + *
+		// Para el numero 5!, la primera vuelta a va poner 5*, la segunda 4* y asi hasta el 2 ya que hemos dicho que se haga hasta que i sea distinta de 1, 
+		//  ya que cuando i valga 1, entonces con el else le decimos que va a añadir solo el valor de i, osea 1 pero ya sin el simbolo *
+
+		// Ademas tambien va a ir multplicando cada valor obtenido de i, para que nos multiplique, 5*4*3*2*1, asi para la primera vuelta
+		// multiplicacion*=i-1 que es igual a  multiplicacion = multiplicacion * (i-1), que es igual a multiplicacion= 5 * (5-1),
+		// ya que la variable multiplicacion en la primera vuelta vale 5 (es decir el valor mas alto del numero ya que la hemos inicializado con el valor del numero), y como i en la primera vuelta vale 5, por tanto tenemos que restarle 1 valor, sino multiplicaria 5 * 5, por tanto para la primera vuelta tenemos que multiplicacion = 5 * 4 = 20,
+		// para la segunda vuelta multiplicacion= 20 * 30=60
+		// para la tercera vuelta, multiplicacion= 60 * 2=120
+		// y para la cuarta, como i ahora vale 1 que es el ultimo valor de i obtenido, y como le hemos dicho con if que cuando sea igual entonces ya no le restará 1 a la i,
+		//porque si lo restamos tendriamos que. multiplicacion= 120 * (i-1) = 120 * (1-1) = 120 * 0 = 0, por tando le decimos que ys no le reste 1
+		// 
+
+	   if(i!=1){	   
+	   resultFactorial += i + " * "; // guarda cada valor de i mas el simbolo * desde el maximo (en este caso 5) hasta 1
+	   multiplicacion*=i-1; // recoge las multiplicaciones de cada vuelta
+	   
+	   } else {	   	
+	   resultFactorial += i;
+	   multiplicacion*=i;
+	   
+		}
+	}
+
+	document.write("El factorial de " + numero + "! es: " + numero + "!= " + resultFactorial + " = " + multiplicacion);
+	
+	// HASTA AQUI SERIA DE LA FORMA QUE PRIMERO SE ME ha OCURRIDO, PERO TAMBIEN LO HE HECHO DE OTRA SEGUNDA FORMA POR PROBAR, TE LA DEJO MAS ABAJO, cual seria más idonea??
+
+	document.write("<br>");
+	document.write("<br>");
+	document.write("SEGUNDA FORMA:");
+	document.write("<br>");
+	document.write("<br>");
+
+	// USO LA MISMA VARIABLE DE ENTRADA llamada numero
+
+	// Aqui creo un nuevo array vacio que va a ir guardando los valores de i
+
+	var arrayNumeros = new Array();
+
+	// Tambien creo una variable para calcular la multiplicacion de cada numero obtenido (5*4*3*2*1), y la inicio desde el valor de la variable numero
+	// ya que para 5!, empezamos con 5+4+3+2+1, por tanto la iniciamos cone l valor maximo del numero
+
+	var multiplicacion2=numero; 
+
+	// Ahora recorro con un for el numero desde el final hasta 1 y si i es distinto de 1, entonces con push, añade al arrayNumero el valor de i mas el simbolo *, osea, i + * 
+	// pero para cuando i sea igual a 1, entonces añdira solo el valor de i, osea un 1 pero ya sin el simbolo.
+	// Ademas voy recogiendos los valores de la multiplicacion
+
+	for (var i=numero;i>=1;i--) {
+	   if(i!=1){
+	   arrayNumeros.push(i + " * "); // voy añadiendo al array arraynumeros, cada valor de i mas el simbolo *
+	   multiplicacion2*=i-1; // Voy guardando la multiplicacion de cada vuelta
+	  
+	   
+	   } else {
+	   arrayNumeros.push(i);
+	   multiplicacion2*=i;
+	   
+	
+		}
+	}
+
+	// Aqui convertimos a String con join para que no salgan las comas del array
+	var stringResult=arrayNumeros.join("") 
+	document.write("El factorial de " + numero + "! es: " + numero + "!= " + stringResult + " = " + multiplicacion2);
+	
+	
+	</script>
+		
+	
+</body>
+</html>
